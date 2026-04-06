@@ -17,20 +17,40 @@ The portfolio is designed as a premium, editorial, and systems-oriented digital 
 - `/js/`: Client-side interactivity and scroll animations.
 - `/assets/`: Placeholders for architectural diagrams and system map imagery.
 
-## Deployment
-This project is containerized for easy deployment.
+## Deployment Guide
 
-### Development (Local)
-To run the project locally using Docker Compose:
-```bash
-docker compose up -d
-```
-The site will be available at `http://localhost:80`.
+Follow these steps to deploy the portfolio website to a server:
 
-### Production
-The site can be deployed to any container-ready environment or static host. 
-- **Docker**: Build and run using the provided `Dockerfile`.
-- **Static Hosting**: Upload the contents of the root folder to Vercel, Netlify, or your preferred static host.
+### Prerequisites
+- [Docker](https://docs.docker.com/get-docker/) installed on your host machine.
+- [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+### Step-by-Step Deployment
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/amarmashruwala/TestRepo.git
+   cd TestRepo
+   ```
+
+2. **Build and Start the Container:**
+   Run the following command to build the image and start the Caddy web server:
+   ```bash
+   docker compose up -d --build
+   ```
+
+3. **Verify Deployment:**
+   - Open your web browser and navigate to `http://localhost`.
+   - The site should be live and served via the Caddy web server running inside the container.
+
+4. **Update Content:**
+   - Modify any files in the local `portfolio/` folder.
+   - Since the `docker-compose.yml` mounts the current directory as a volume, you can simply refresh your browser to see changes instantly without rebuilding the container.
+
+5. **Stop the Container:**
+   To stop the server, run:
+   ```bash
+   docker compose down
+   ```
 
 ## Brand Philosophy
 Built on the **MediaTech Solutions** philosophy:
